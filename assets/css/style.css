@@ -1,0 +1,140 @@
+/* Konfigurasi Warna & Font */
+:root {
+    --primary-yellow: #FFC107; /* Kuning Keju */
+    --light-cream: #FFF8DC;    /* Krem */
+    --dark-brown: #5C4033;     /* Cokelat Gelap untuk teks */
+    --light-brown: #A0522D;    /* Cokelat Muda */
+    --wa-green: #25D366;       /* Hijau WhatsApp */
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--light-cream);
+    color: var(--dark-brown);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo { font-size: 24px; font-weight: 700; color: var(--primary-yellow); }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--dark-brown); font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary-yellow); }
+
+/* HERO / BANNER */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 5%;
+    min-height: 80vh;
+}
+.hero-text h1 { font-size: 48px; line-height: 1.2; }
+.hero-text span { color: var(--primary-yellow); }
+.hero-text p { font-size: 18px; margin: 20px 0; color: var(--light-brown); }
+.btn-primary {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-yellow);
+    color: var(--dark-brown);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(255, 193, 7, 0.4);
+    transition: transform 0.3s;
+}
+.btn-primary:hover { transform: translateY(-5px); }
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: rotate(2deg);
+}
+
+/* ORDER SECTION (Mode Laptop Default) */
+.order-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 50px 5%;
+    background-color: var(--white);
+}
+.product-card, .checkout-card {
+    background-color: var(--light-cream);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.product-card img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+.price { color: var(--primary-yellow); font-size: 24px; margin-top: 10px; }
+
+/* FORM & CHECKOUT */
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-weight: 600; margin-bottom: 5px; }
+.input-group input, .input-group textarea {
+    width: 100%; padding: 12px;
+    border: 2px solid #EEE; border-radius: 10px;
+    font-family: inherit; transition: 0.3s;
+}
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--primary-yellow); outline: none;
+}
+.quantity-control {
+    display: flex; align-items: center; justify-content: space-between;
+    margin: 20px 0; padding: 15px 0; border-top: 2px dashed #DDD; border-bottom: 2px dashed #DDD;
+}
+.counter { display: flex; align-items: center; gap: 10px; }
+.counter button {
+    width: 40px; height: 40px; font-size: 20px; font-weight: bold;
+    background-color: var(--primary-yellow); border: none; border-radius: 10px;
+    color: var(--dark-brown); cursor: pointer;
+}
+.counter input {
+    width: 50px; text-align: center; font-size: 18px; font-weight: bold;
+    border: none; background: transparent;
+}
+.summary { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.total-price { color: var(--light-brown); font-size: 28px; }
+.btn-whatsapp {
+    width: 100%; padding: 15px; font-size: 18px; font-weight: bold;
+    background-color: var(--wa-green); color: white; border: none; border-radius: 10px;
+    cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+}
+.btn-whatsapp:hover { transform: translateY(-3px); }
+
+/* FOOTER */
+footer { text-align: center; padding: 30px; background-color: var(--dark-brown); color: var(--light-cream); }
+
+/* === MODE HP (MOBILE RESPONSIVE) === */
+@media (max-width: 768px) {
+    .hero { flex-direction: column-reverse; text-align: center; padding-top: 20px; }
+    .hero-text h1 { font-size: 32px; }
+    .nav-links { display: none; /* Sembunyikan menu navigasi di HP biar rapi */ }
+    
+    .order-section { grid-template-columns: 1fr; /* Susun vertikal dari atas ke bawah */ }
+    .product-card, .checkout-card { padding: 20px; }
+    
+    .btn-whatsapp {
+        position: sticky; /* Tombol melayang di HP saat scroll */
+        bottom: 20px;
+        z-index: 10;
+    }
+}
